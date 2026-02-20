@@ -41,7 +41,7 @@ export default function Home() {
       try {
         const res = await fetch('/api/psicologos');
         const data = await res.json();
-        const esp = [...new Set((data.psicologos as Psicologo[]).flatMap((p) => p.especialidad))].sort();
+       const esp = Array.from(new Set((data.psicologos as Psicologo[]).flatMap((p) => p.especialidad))).sort();
         setEspecialidades(esp as string[]);
         setPsicologos(data.psicologos);
       } catch {
