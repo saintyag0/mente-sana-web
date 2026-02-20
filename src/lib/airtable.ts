@@ -135,7 +135,7 @@ export function buscarPsicologos(psicologos: Psicologo[], filtros: FiltrosBusque
 
 // Listas únicas para los selectores de filtro
 export function getOpcionesUnicas(psicologos: Psicologo[]) {
-  const especialidades = [...new Set(psicologos.flatMap((p) => p.especialidad))].sort();
+  const especialidades = Array.from(new Set(psicologos.flatMap((p) => p.especialidad))).sort();
   const prevision = ['Fonasa A', 'Fonasa B', 'Fonasa C', 'Fonasa D', 'Isapre'];
   const modalidad = ['Online', 'Presencial'];
   return { especialidades, prevision, modalidad };
